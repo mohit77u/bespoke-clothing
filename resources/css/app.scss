@@ -1,0 +1,66 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
+.error{
+    color: red;
+    font-size: 17px;
+    margin: 10px 0;
+}
+
+.auth{
+    .row{
+        display: flex;
+        align-items: center;
+    }
+    .col-sm-6{
+        min-height: 100vh;
+    }
+    .black{
+        background: black;
+    }
+    .form-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .card{
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: none;
+            form{
+                margin: 25px 0;
+                .form-group{
+                    margin-bottom: 35px;
+                    .main-field{
+                        position: relative;
+                        label{
+                            position: absolute; 
+                            padding: 0 10px;
+                            left: 10px;
+                            top: -12px;
+                            width: auto;
+                            height: auto;
+                            background: white;
+                            z-index: 100;
+                        }
+                        input{
+                            padding: 15px 20px 15px 50px;
+                        }
+                        img{
+                            position: absolute;
+                            max-width: 25px;
+                            left: 10px;
+                            bottom: 15px;
+                            z-index: 100;
+                        }
+                    }
+                    .submit-btn{
+                        width: 100%;
+                        display: inline-block;
+                        padding: 15px 0;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+}
