@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:super_admin|ad
         Route::get('dashboard', 'getDashboardPage')->name('admin.dashboard');
     });
 
+
+});
+
+Route::controller(ProductController::class)->group(function(){
+    Route::post('/image-upload', 'store')->name('image.upload');
 });
 
 
