@@ -44,7 +44,9 @@ class ProductController extends Controller
         //     'price'         => 'required',
         //     'features'      => 'required',
         // ]);
-        $input = $request->all();
+        $input = $request->except('tag');
+
+        // dd($input);
 
         if($input['tags'])
         {

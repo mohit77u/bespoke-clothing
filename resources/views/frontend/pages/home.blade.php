@@ -3,7 +3,7 @@
 
 @section('content')
 
-<section class="auth py-5">
+<section class="py-5">
     <div class="container">
         <div class="form">
             <form action="{{ route('image.upload') }}" method="post" enctype="multipart/form-data">
@@ -35,23 +35,65 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <input type="checkbox" class="btn-check" id="value_one" autocomplete="off" name="tags[]" value="Value One">
-                                    <label class="btn btn-outline-secondary" for="value_one">Value One</label>
+                        <div class="col-sm-12 mt-3">
+                            <div class="row">
+                                <div class="col-sm-5 ">
+                                    <div class="form-group tags-div mb-3">
+                                        <input type="text" id="inputTag" name="tag[]" class="form-control tags-input">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group mb-3">
+                                        <button type="button" class="add-tag-btn btn btn-dark px-4">Add Tag</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2 ">
+                        </div>
+                        <div class="tags">
+                            <div class="single-tag">
                                 <div class="form-group">
-                                    <input type="checkbox" class="btn-check" id="value_two" autocomplete="off" name="tags[]" value="Value Two">
-                                    <label class="btn btn-outline-secondary" for="value_two">Value Two</label>
+                                    <input type="checkbox" class="btn-check tag-btn" id="value_1" checked name="tags[]" value="Value One">
+                                    <label class="btn btn-outline-dark" for="value_1">Value One</label>
+                                    <p class="close-icon">&times;</p>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="single-tag ">
                                 <div class="form-group">
-                                    <input type="checkbox" class="btn-check" id="value_three" autocomplete="off" name="tags[]" value="Value Three">
-                                    <label class="btn btn-outline-secondary" for="value_three">Value Three</label>
+                                    <input type="checkbox" class="btn-check tag-btn" id="value_2" checked name="tags[]" value="Value Two">
+                                    <label class="btn btn-outline-dark" for="value_2">Value Two</label>
+                                    <p class="close-icon">&times;</p>
+                                </div>
+                            </div>
+                            <div class="single-tag">
+                                <div class="form-group">
+                                    <input type="checkbox" class="btn-check tag-btn" id="value_3" checked name="tags[]" value="Value Three">
+                                    <label class="btn btn-outline-dark" for="value_3">Value Three</label>
+                                    <p class="close-icon">&times;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-3">
+                        <div class="tags">
+                            <div class="single-tag">
+                                <div class="form-group">
+                                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="tags[]" value="Tag One">
+                                    <label class="btn btn-outline-dark" for="btn-check-outlined">Tag One</label>
+                                    <p class="close-icon">&times;</p>
+                                </div>
+                            </div>
+                            <div class="single-tag">
+                                <div class="form-group">
+                                    <input type="checkbox" class="btn-check" id="btn-check-outlined-2" autocomplete="off" name="tags[]" value="Tag One">
+                                    <label class="btn btn-outline-dark" for="btn-check-outlined-2">Tag One</label>
+                                    <p class="close-icon">&times;</p>
+                                </div>
+                            </div>
+                            <div class="single-tag">
+                                <div class="form-group">
+                                    <input type="checkbox" class="btn-check" id="btn-check-outlined-3" autocomplete="off" name="tags[]" value="Tag One">
+                                    <label class="btn btn-outline-dark" for="btn-check-outlined-3">Tag One</label>
+                                    <p class="close-icon">&times;</p>
                                 </div>
                             </div>
                         </div>

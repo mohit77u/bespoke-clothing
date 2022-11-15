@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\Hash;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -55,6 +56,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'user_id'   => 'bespokeAdministrator@123',
             'email'     => 'super-admin@bespokeclothing.com',
             'password'  => Hash::make('BeSpokeAdministrator@321'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
         ]);
 
         $superAdminUser->assignRole('super_admin');
@@ -67,6 +70,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'user_id'   => 'bespokeAdmin@123',
             'email'     => 'admin@bespokeclothing.com',
             'password'  => Hash::make('BeSpokeAdmin@321'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
         ]);
 
         $adminUser->assignRole('admin');
