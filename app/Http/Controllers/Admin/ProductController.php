@@ -36,26 +36,50 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate([
+        //     'images'        => 'required',
+        //     'title'         => 'required',
+        //     'description'   => 'required',
+        //     'quantity'      => 'required',
+        //     'price'         => 'required',
+        //     'features'      => 'required',
+        // ]);
         $input = $request->all();
 
-        $images = [];
-        $destinationFilePath = '/uploads/products/' ;
-        foreach ($input['images'] as $key => $image)
+        if($input['tags'])
         {
-            $extension = $image->getClientOriginalExtension();
-            $baseNameImage = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-            $name = Str::slug($baseNameImage, '-');
-            $imageFileName = $name.'.'.$extension;
-           
-            // image path
-            $imageUrl = $destinationFilePath . $imageFileName;
-            // dd($imageUrl);
-
-            // store value
-            $images[$key]= [ $imageUrl ];
+            dd(json_encode($input['tags']));
         }
 
-        dd(json_encode($images));
+        if(isset($request->images))
+        {
+            $images = [];
+            $destinationFilePath = '/uploads/products/' ;
+            foreach ($input['images'] as $key => $image)
+            {
+                $extension = $image->getClientOriginalExtension();
+                $baseNameImage = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $name = Str::slug($baseNameImage, '-');
+                $imageFileName = $name.'.'.$extension;
+               
+                // image path
+                $imageUrl = $destinationFilePath . $imageFileName;
+    
+                // store value
+                $images[$key]= [ 
+                    $imageUrl 
+                ];
+            }
+    
+            dd(json_encode($images));
+        }
+
+        if(isset($request->features))
+        {    
+            dd(json_encode($input['features']));
+        }
+
+        
     }
 
     /**

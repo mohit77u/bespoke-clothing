@@ -12,6 +12,12 @@ $(function(){
         cloneRow.after(clone);
     })
 
+    $(".features-btn").on('click', function(){
+        var cloneRow = $('.features-div').first();
+        var clone = cloneRow.clone();
+        cloneRow.after(clone);
+    })
+
     if ($(".upload").length) {
         $(document).on('change', '.upload', function() {
  
