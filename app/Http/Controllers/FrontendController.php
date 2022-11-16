@@ -13,21 +13,35 @@ class FrontendController extends Controller
       return view('frontend.pages.home');
    }
 
-   //show login page
-   public function getUsers()
+   //show users page
+   public function getUsers(Request $request)
    {
       $names = ['zar', 'ake', 'vero', 'kai', 'prof', 'mrs', 'bor', 'heg', 'ste'];
+      $emails = ['prof', 'mrs', 'bor', 'heg', 'ste'];
       $users = User::select('*');
-      foreach($names as $key => $value) {
-         $users->orWhere('name', 'like', '%'. $value .'%')
-               ->orWhere(function($query) use ($value) {
-                  $query->orWhere('user_id', 'like', '%'. $value .'%');
-               });
+      if(isset($request->names))
+      {
+         // dd($request->names);
+         foreach($request->names as $key => $value) {
+            $users->orWhere('name', 'like', '%'. $value .'%');
+         }
+      }
+
+      if(isset($request->emails))
+      {
+         // dd($request->names);
+         foreach($request->emails as $key => $value) {
+            $users->orWhere(function($query) use ($value) {
+                     $query->orWhere('email', 'like', '%'. $value .'%');
+                  });
+         }
       }
 
       $users = $users->get();
 
-      dd($users);
+      // dd($users);
+
+      return view('frontend.pages.users', compact('names', 'users', 'emails'));
    }
 
 }
